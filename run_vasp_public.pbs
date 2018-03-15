@@ -1,3 +1,4 @@
+#实际使用时,删除其中的中文
 #PBS -N vasp
 #程序名
 #PBS -l nodes=3:ppn=12
