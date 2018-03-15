@@ -1,0 +1,18 @@
+vasp后处理各种脚本【资料分享】
+作者：obaica   (离线)   [VASP ]   [第一性原理 ]   时间：2016-06-01 23:58:40  向他请教
+
+近日看到板块很多虫子在求侯博士教程里面提到的能带处理的脚本，论坛之前有前辈传过，可能时间太久，不太好找，特上传供下载！
+
+http://pan.baidu.com/s/1c2qcPXm 百度网盘
+
+[转自lqcata回复]
+
+这些脚本的原始出处：
+Henkelman 课题组：
+http://theory.cm.utexas.edu/henkelman/
+
+http://theory.cm.utexas.edu/vtsttools/scripts.html
+
+吃水不忘挖井人，下载脚本的时候也去感受下他们踏踏实实做科研的境界。
+一次下载，全部搞定，没有必要浪费时间再去其他地方下载。
+

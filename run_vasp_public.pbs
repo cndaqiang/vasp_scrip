@@ -1,0 +1,36 @@
+#PBS -N vasp
+#程序名
+#PBS -l nodes=3:ppn=12
+#节点,总进程
+#PBS -l walltime=1:00:00:00
+#PBS -q batch
+#PBS -V
+#PBS -S /bin/bash 
+### Set intel environment###
+source /opt/intel/compilers_and_libraries_2018.0.128/linux/bin/compilervars.sh intel64
+source /opt/intel/compilers_and_libraries_2018.0.128/linux/bin/iccvars.sh intel64 
+source /opt/intel/compilers_and_libraries_2018.0.128/linux/bin/ifortvars.sh intel64 
+source /opt/intel/compilers_and_libraries/linux/mkl/bin/mklvars.sh intel64
+source  /opt/intel/impi/2018.0.128/bin64/mpivars.sh
+
+
+cd $PBS_O_WORKDIR
+#进入工作目录
+EXEC=/home/cndaqiang/soft/vasp.5.4.1/build/std/vasp
+#vasp
+NP=`cat $PBS_NODEFILE | wc -l`
+#wc -l 统计行数
+#NP为 mpirun运行的np(number of processes,),核数
+NN=`cat $PBS_NODEFILE | sort | uniq | tee /tmp/cqiang_nodes.$$ | wc -l`
+#sort排序,uniq去除重复,tee重定向输出,$$代表shell本身的PID
+#NN为节点数
+cat $PBS_NODEFILE > /tmp/cqiang_nodefile.$$
+#存储节点进程信息
+mpirun -genv I_MPI_DEVICE rdssm -machinefile /tmp/cqiang_nodefile.$$ -n $NP $EXEC
+
+# -machinefile :指定加入运算的资源
+# -nolocal :本机器不参与运算
+# -np :处理器数量
+
+rm -rf /tmp/cqiang_nodefile.$$
+rm -rf /tmp/cqiang_nodes.$$
