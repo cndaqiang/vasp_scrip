@@ -1,6 +1,10 @@
 # 说明
 这里记录，我在学习vasp过程中使用和收集的代码
 
+#INCAR模板
+```
+wget https://github.com/cndaqiang/vasp_scrip/raw/master/INCAR-model
+```
 # 内容
 - grep_OUTCAR.md
 <br> 使用grep从OUTCAR中提取信息
